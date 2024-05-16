@@ -1,0 +1,111 @@
+:root {
+  --primary: #fd097a;
+  --secondary: #001536;
+  --gradient: linear-gradient(
+    143deg,
+    rgba(253, 9, 122, 1) 25%,
+    rgba(65, 200, 225, 1) 75%
+  );
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.card {
+  width: 500px;
+  height: 250px;
+  background-color: white;
+  color: var(--secondary);
+  border: none;
+  /* Não é possiveel criar bordas gradient usando o border */
+  padding: 32px;
+  position: relative;
+  border-radius: 7px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* Centraliza o pseudo elemento after */
+
+  flex-direction: column;
+  gap: 16px;
+}
+
+.card::after {
+  content: "";
+  position: absolute;
+  height: 255px;
+  width: 505px;
+  background-image: var(--gradient);
+  z-index: -1;
+  border-radius: 8px;
+}
+
+.card h2 {
+  align-self: flex-start;
+}
+
+.card p {
+  color: gray;
+}
+
+button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  color: white;
+}
+
+.close-btn {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  left: 93%;
+  bottom: 87%;
+}
+
+.btns-container {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.btns-container button {
+  width: 50%;
+  height: 40px;
+  border-radius: 4px;
+  background-color: red;
+  text-transform: uppercase;
+  transition-duration: 150ms;
+}
+
+.btns-container button:hover {
+  filter: opacity(0.8);
+}
+
+.btns-container .primary {
+  background-color: var(--primary);
+}
+
+.btns-container .secondary {
+  background-color: var(--secondary);
+}
